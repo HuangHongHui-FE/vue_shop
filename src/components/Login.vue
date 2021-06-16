@@ -39,7 +39,8 @@ export default {
 			loginFormRules: {
 				// 验证用户名
 				username: [
-					{ required: true, message: '请输入登录名称', trigger: 'blur' }, /*trigger: 文本框失去焦点时触发验证*/
+					{ required: true, message: '请输入登录名称', trigger: 'blur' }, 
+					/*trigger: 文本框失去焦点时触发验证*/
 					{ min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
 				],
 				// 验证密码

@@ -27,6 +27,9 @@ module.exports = {
     'object-curly-spacing': 'off',
     'padded-blocks': 'off',
     'keyword-spacing': 'off',
-    'eol-last': 'off'
+    'eol-last': 'off',
+    'quote-props': 'off',
+    'no-unused-vars': 'off',
+    'key-spacing': 'off'
   }
 }
