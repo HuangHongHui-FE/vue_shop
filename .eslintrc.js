@@ -30,6 +30,8 @@ module.exports = {
     'eol-last': 'off',
     'quote-props': 'off',
     'no-unused-vars': 'off',
-    'key-spacing': 'off'
+    'key-spacing': 'off',
+    'vue/no-unused-vars': 'off',
+    'vue/no-parsing-error': 'off'
   }
 }

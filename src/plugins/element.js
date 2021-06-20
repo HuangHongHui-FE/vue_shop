@@ -23,7 +23,11 @@ import {
 	Tooltip,
 	Pagination,
 	Dialog,
-	MessageBox
+	MessageBox,
+	Tag,
+	Tree,
+	Select,
+	Option
 } from 'element-ui'
 
 // 注册为全局可用的组件
@@ -49,6 +53,10 @@ Vue.use(Switch)
 Vue.use(Tooltip)
 Vue.use(Pagination)
 Vue.use(Dialog)
+Vue.use(Tag)
+Vue.use(Tree)
+Vue.use(Select)
+Vue.use(Option)
 
 
 // message需要进行全局挂载才能this.使用
