@@ -28,7 +28,10 @@ import {
 	Tree,
 	Select,
 	Option,
-	Cascader
+	Cascader,
+	Alert,
+	Tabs,
+	TabPane
 } from 'element-ui'
 
 // 注册为全局可用的组件
@@ -59,6 +62,9 @@ Vue.use(Tree)
 Vue.use(Select)
 Vue.use(Option)
 Vue.use(Cascader)
+Vue.use(Alert)
+Vue.use(Tabs)
+Vue.use(TabPane)
 
 
 // message需要进行全局挂载才能this.使用

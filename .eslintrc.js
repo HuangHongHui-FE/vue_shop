@@ -32,6 +32,7 @@ module.exports = {
     'no-unused-vars': 'off',
     'key-spacing': 'off',
     'vue/no-unused-vars': 'off',
-    'vue/no-parsing-error': 'off'
+    'vue/no-parsing-error': 'off',
+    'camelcase': 'off'
   }
 }
