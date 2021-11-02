@@ -4,8 +4,8 @@
 	  <!-- 头部区域 -->
 	  <el-header>
 	  	<div>
-	  	<img src="../assets/heima.png">
-	  	<span>电商后台管理系统</span>	  		
+	  		<img src="../assets/logo.png">
+	  		<span>funguy后台管理系统</span>	  		
 	  	</div>
 
 	  	<el-button type="info" @click="logout">退出</el-button>
@@ -26,18 +26,14 @@
 		      	<!-- index代表一级菜单，须接收字符串 -->
 		      	<!-- 一级菜单的模板区域 -->
 		        <template #title>
-		          <!-- 图标 -->
 		          <i :class="iconsObj[item.id]"></i>
-		          <!-- 文本 -->
 		          <span>{{item.authName}}</span>
 		        </template>
 
 		          <!-- 二级菜单 saveNavState: 保存导航连接的状态-->
-		          <el-menu-item v-bind:index="'/' + subItem.path" v-for="subItem in item.children" :key="subItem.id" @click="saveNavState('/' + subItem.path)">
+		          <el-menu-item :index="'/' + subItem.path" v-for="subItem in item.children" :key="subItem.id" @click="saveNavState('/' + subItem.path)">
 		          	<template #title>
-			          <!-- 图标 -->
 			          <i class="el-icon-menu"></i>
-			          <!-- 文本 -->
 			          <span>{{subItem.authName}}</span>
 			        </template>
 		          </el-menu-item>
@@ -47,11 +43,11 @@
 
 	     <!-- 右侧内容主体 -->
 	     <el-main>
-	     	<!-- 路由占位符 Welcome-->
+	     	<!-- 路由占位符 Welcome   进来的就是children路由-->
 	     	<router-view></router-view>
 	     </el-main>
-	    </el-container>
-	 </el-container>
+	   </el-container>
+	</el-container>
 </template>
 
 
@@ -64,11 +60,11 @@ export default {
 			menulist: [],
 			// 一级菜单图标
 			iconsObj: {
-				'125': 'iconfont icon-user',
-				'103': 'iconfont icon-tijikongjian',
-				'101': 'iconfont icon-shangpin',
-				'102': 'iconfont icon-danju',
-				'145': 'iconfont icon-baobiao'
+				'10': 'iconfont icon-user',
+				'20': 'iconfont icon-tijikongjian',
+				'30': 'iconfont icon-shangpin',
+				'40': 'iconfont icon-danju',
+				'50': 'iconfont icon-baobiao'
 			},
 			// 是否折叠
 			isCollpase: false,
@@ -86,11 +82,130 @@ export default {
 			this.$router.push('/login');
 		},
 		// 获取所有的菜单
-		async getMenuList(){
-			const {data: res} = await this.$http.get('menus')
-			if(res.meta.status !== 200) return this.$message.error(res.meta.msg)
-			this.menulist = res.data
-			// console.log(res)
+		getMenuList(){
+			const data = [
+				{
+					authName: 'funguy管理',
+					children: [
+						{
+							authName: '音乐列表',
+							children: [],
+							id: 11,
+							order: null,
+							path: 'Music'
+						},
+						{
+							authName: '视频列表',
+							children: [],
+							id: 12,
+							order: null,
+							path: 'Video'
+						}
+					],
+					id: 10,
+					order: 1,
+					path: 'users'
+					
+				},
+				{
+					authName: 'resource管理',
+					children: [
+						{
+							authName: '好玩的',
+							children: [],
+							id: 21,
+							order: null,
+							path: 'play'
+						},
+						{
+							authName: '资源分享',
+							children: [],
+							id: 22,
+							order: null,
+							path: 'resourceShare'
+						},
+						{
+							authName: '学习上传',
+							children: [],
+							id: 23,
+							order: null,
+							path: 'studyWhite'
+						},
+						{
+							authName: '学习删除',
+							children: [],
+							id: 24,
+							order: null,
+							path: 'studyDelete'
+						}
+					],
+					id: 20,
+					order: 2,
+					path: 'resource'
+					
+				},
+				{
+					authName: 'share管理',
+					children: [
+						{
+							authName: '博客列表',
+							children: [],
+							id: 31,
+							order: null,
+							path: 'blogs'
+						},
+						{
+							authName: '分类列表',
+							children: [],
+							id: 32,
+							order: null,
+							path: 'classify'
+						},
+						{
+							authName: '图册列表',
+							children: [],
+							id: 33,
+							order: null,
+							path: 'shareImage'
+						}
+					],
+					id: 30,
+					order: 4,
+					path: 'share'
+				},
+				{
+					authName: 'users管理',
+					children: [
+						{
+							authName: '用户列表',
+							children: [],
+							id: 41,
+							order: null,
+							path: 'users'
+						}
+					],
+					id: 40,
+					order: 4,
+					path: 'users'
+				},
+				{
+					authName: '数据统计',
+					children: [
+						{
+							authName: '数据报表',
+							children: [],
+							id: 51,
+							order: null,
+							path: 'reports'
+						}
+					],
+					id: 50,
+					order: 5,
+					path: 'reports'
+				}
+			]
+
+			this.menulist = data
 		},
 		// 点击按钮，切换左边菜单的折叠与展开
 		toggleCollapse(){
@@ -112,7 +227,8 @@ export default {
 		height: 100%;
 	}
 	.el-header {
-		background-color: #373d41;
+		// background-color: #373d41;
+		background-color: rgb(51, 55, 68);
 		display: flex;
 		justify-content: space-between;
 		padding-left: 0;
@@ -121,7 +237,7 @@ export default {
 		font-size: 20px;
 		> div {
 			display: flex;
-			align-items: center;
+			align-items: center;  // 中间字上下居中
 			span {
 				margin-left: 15px;
 			}

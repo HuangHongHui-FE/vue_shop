@@ -36,7 +36,10 @@ import {
 	Step,
 	CheckboxGroup,
 	Checkbox,
-	Upload
+	Upload,
+	Radio,
+	Collapse,
+	CollapseItem
 } from 'element-ui'
 
 // 注册为全局可用的组件
@@ -75,6 +78,9 @@ Vue.use(Step)
 Vue.use(CheckboxGroup)
 Vue.use(Checkbox)
 Vue.use(Upload)
+Vue.use(Radio)
+Vue.use(Collapse)
+Vue.use(CollapseItem)
 
 
 

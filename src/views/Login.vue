@@ -32,8 +32,8 @@ export default {
 		return {
 			// 登录表单的数据绑定对象
 			loginForm: {
-				username: 'admin',
-				password: '123456'
+				username: '3167253066',
+				password: 'hzddsy123'
 			},
 			// 表单的验证规则对象
 			loginFormRules: {
@@ -41,7 +41,7 @@ export default {
 				username: [
 					{ required: true, message: '请输入登录名称', trigger: 'blur' }, 
 					/*trigger: 文本框失去焦点时触发验证*/
-					{ min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+					{ min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur' }
 				],
 				// 验证密码
 				password: [
@@ -54,24 +54,21 @@ export default {
 	methods: {
 		// 点击重置按钮重置登陆表单
 		resetLoginForm() {
-			console.log(this);
-			this.$refs.loginFormRef.resetFields();  /*resetFields: elementjs文档里的方法*/
+			this.$refs.loginFormRef.resetFields();
 		},
 		// 登陆前的预验证
 		login(){
 			this.$refs.loginFormRef.validate(async valid => {
-				console.log(valid);  /* 验证成功valid为true */
+				// console.log(valid);  /* 验证成功valid为true */
 				if (!valid) return;
-				const result = await this.$http.post("login", this.loginForm);  /*$http,应先在main里配置， this.loginForm为参数*/
-				// 不加async,await时返回的为promise对象
-				// console.log(result);  
+				const result = await this.$http.post("users/login", this.loginForm);  /*$http,应先在main里配置， this.loginForm为参数*/
 
 				const {data: res} = result
-				// console.log(res)
+				console.log(res)
 				if(res.meta.status !== 200) return this.$message.error("登录失败！");
 				this.$message.success("登陆成功");
 				// 设置token
-				window.sessionStorage.setItem('token', res.data.token);
+				window.sessionStorage.setItem('token', res.data);
 				
 				// 痛过编程式导航跳转到后台主页，路由地址是/home
 				this.$router.push("/home");
